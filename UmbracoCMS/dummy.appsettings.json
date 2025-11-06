@@ -1,0 +1,40 @@
+{
+    "$schema": "appsettings-schema.json",
+    "Serilog": {
+        "MinimumLevel": {
+            "Default": "Information",
+            "Override": {
+                "Microsoft": "Warning",
+                "Microsoft.Hosting.Lifetime": "Information",
+                "System": "Warning"
+            }
+        }
+    },
+    "Umbraco": {
+        "CMS": {
+            "Global": {
+                "Id": "aa892c32-a07b-4672-b992-c5c079817537",
+                "UseHttps": true,
+                "SanitizeTinyMce": true
+            },
+            "Content": {
+                "AllowEditInvariantFromNonDefault": true,
+                "ContentVersionCleanupPolicy": {
+                    "EnableCleanup": true
+                }
+            },
+            "Unattended": {
+                "UpgradeUnattended": true
+            },
+            "Runtime": {
+                "Mode": "Production"
+            },
+            "ModelsBuilder": {
+                "ModelsMode": "Nothing"
+            },
+            "Security": {
+                "AllowConcurrentLogins": false
+            }
+        }
+    }
+}
