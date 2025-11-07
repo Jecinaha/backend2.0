@@ -23,7 +23,7 @@
 			<div class="rte">@Html.Raw(Model.HeroText)</div>
 			@if (Model.HeroLink != null)
 			{
-				<a class="bg-[#4F5955] text-white py-3 px-10 no-underline rounded cursor-pointer">href="@Model.HeroLink.Url">@Model.HeroLink.Name</a>
+				<a class="bg-[#4F5955] text-white py-3 px-10 no-underline rounded cursor-pointer self-start font-bold" href="@Model.HeroLink.Url">@Model.HeroLink.Name</a>
 			}
 		</div>
 	</div>
