@@ -8,42 +8,22 @@
 	var contactAddress = siteSettings?.ContactAddress ?? "Ingen adress angiven";
 }
 
-
-<div class="bg-[var(--color-primary)]">
-	<div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-		<p class="text-xs text-[var(--color-neutral)]">@contactAddress</p>
-
-		<div class="flex">
-
-			@if (siteSettings?.PlatformList != null)
-			{
-				foreach (var item in siteSettings.PlatformList)
-				{
-					if (item.Content is SocialMediaItem mediaItem)
-					{
-						switch (mediaItem.PlatformName!.ToLower())
-						{
-							case "facebook":
-							    <a href="@mediaItem.PlatformAccountUrl" target="_blank" class="flex items-center justify-center p-3 text-base text-[var(--color-neutral)] border-l border-[var(--color-main-light)] last:border-r">
-									<i class="fa-brands fa-facebook"></i>
-								</a>
-								break;
-
-							case "X":
-								<a href="@mediaItem.PlatformAccountUrl" target="_blank" class="flex items-center justify-center p-3 text-base text-[var(--color-neutral)] border-l border-[var(--color-main-light)] last:border-r">
-									<i class="fa-brands fa-x-twitter"></i>
-								</a>
-								break;
-
-							case "LinkedIn":
-								<a href="@mediaItem.PlatformAccountUrl" target="_blank" class="flex items-center justify-center p-3 text-base text-[var(--color-neutral)] border-l border-[var(--color-main-light)] last:border-r">
-									<i class="fa-brands fa-linkedin-in"></i>
-								</a>
-								break;
-						}
-					}
-				}
-			}
-		</div>
-	</div>
+<div class="topbar">
+    <div class="container">
+        <p>@contactAddress</p>
+        <div class="social-links">
+            @if (siteSettings?.PlatformList != null)
+            {
+                foreach (var item in siteSettings.PlatformList)
+                {
+                    if (item.Content is SocialMediaItem mediaItem)
+                    {
+                        <a href="@mediaItem.PlatformAccountUrl" target="_blank">
+                            <i class="fa-brands fa-@mediaItem.PlatformName!.ToLower()"></i>
+                        </a>
+                    }
+                }
+            }
+        </div>
+    </div>
 </div>
