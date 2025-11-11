@@ -4,4 +4,8 @@
 	Layout = "mainLayout.cshtml";
 }
 
+
+<partial name="Partials/Layouts/_PageHeader" model="(IPageHeader)Model" />
+
+
 @Html.GetBlockListHtml(Model.Sections)

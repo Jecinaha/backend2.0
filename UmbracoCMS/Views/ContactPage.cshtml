@@ -4,4 +4,5 @@
 	Layout = "mainLayout.cshtml";
 }
 
-<h1>@Model.BannerTitle</h1>
+
+<partial name="Partials/Layouts/_PageHeader" model="(IPageHeader)Model" />
