@@ -274,7 +274,7 @@ nav {
     nav ul {
         display: flex;
         align-items: center;
-        gap: 4rem; /* gap-16 */
+        gap: 4rem;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -300,7 +300,7 @@ nav {
     }
 
         nav .search-container i {
-            font-size: 1.125rem; /* text-lg */
+            font-size: 1.125rem;
             color: var(--color-primary);
             cursor: pointer;
             transition: color 0.3s ease;
@@ -341,5 +341,209 @@ nav {
         nav .search-container {
             align-self: flex-end;
             margin-top: 0.5rem;
+        }
+}
+
+/* Hero-sektion */
+.hero-section {
+    position: relative;
+    background-color: #F7F7F7; 
+    min-height: 400px; /* justera efter behov */
+    padding: 7rem 1rem; 
+    overflow: hidden; 
+}
+
+    /* Bakgrundsbilder */
+    .hero-section .bg-left,
+    .hero-section .bg-right {
+        position: absolute;
+        z-index: 0; 
+    }
+
+    .hero-section .bg-left {
+        bottom: 0;
+        left: 0;
+        width: 150px; 
+        height: auto;
+    }
+
+    .hero-section .bg-right {
+        top: 0;
+        right: 0;
+        width: 150px; /* justera storlek */
+        height: auto;
+    }
+
+    /* Container */
+    .hero-section .container {
+        position: relative;
+        z-index: 1; 
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        /* Hero-titel */
+        .hero-section .container h1 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+
+    /* Breadcrumb-wrapper */
+    .hero-section .breadcrumb-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+
+    /* Breadcrumb */
+    .hero-section .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .hero-section .breadcrumb li {
+            display: flex;
+            align-items: center;
+        }
+
+            /* Breadcrumb-länkar */
+            .hero-section .breadcrumb li a {
+                font-size: 0.875rem;
+                text-decoration: none;
+                color: var(--color-primary);
+                font-family: 'Poppins', sans-serif;
+                transition: color 0.3s;
+            }
+
+                .hero-section .breadcrumb li a:hover {
+                    color: var(--color-secondary);
+                }
+
+            /* Divider / ikon */
+            .hero-section .breadcrumb li .breadcrumb-icon {
+                font-size: 10px;
+                margin-left: 0.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #4F5955;
+            }
+
+            /* Active breadcrumb */
+            .hero-section .breadcrumb li.active p {
+                font-size: 0.875rem;
+                font-weight: bold;
+                color: var(--color-secondary);
+                margin: 0;
+            }
+
+/* === Sektion === */
+.services-section {
+    padding-top: 4rem; 
+    padding-bottom: 4rem;
+}
+
+.service-detail-body p {
+    margin-bottom: 1rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* === Container (centrerad layout) === */
+.services-section .container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* === Wrapper för innehållet === */
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    gap: 2rem; 
+}
+
+/* === Sidomenyn (aside) === */
+.services-section aside {
+    width: 25%; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+}
+
+/* === Vertikal linje mellan kolumner === */
+.line {
+    width: 1px;
+    background-color: #e5e7eb; 
+}
+
+/* === Innehållsdel (höger kolumn) === */
+.content {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Info-kort */
+.info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: var(--font-poppins);
+}
+
+    /* Titel */
+    .info-card h2 {
+        color: var(--color-primary); 
+        font-size: 1.37rem; 
+        font-weight: 600; 
+        margin: 0;
+    }
+
+    /* Bild */
+    .info-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    /* Brödtext / paragraph */
+    .info-card p {
+        color: var(--color-body-text);
+        font-size: 0.875rem;
+        font-weight: 400; 
+        margin: 0;
+        line-height: 1.5;
+    }
+
+/* Responsiv tweak (valfritt) — gör bilden till vänster på breda skärmar */
+@media (min-width: 900px) {
+    .info-card.horizontal {
+        flex-direction: row;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+        .info-card.horizontal img {
+            width: 40%;
+        }
+
+        .info-card.horizontal .text {
+            width: 60%;
         }
 }
