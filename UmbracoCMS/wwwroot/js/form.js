@@ -1,0 +1,15 @@
+﻿
+document.addEventListener("submit", function (e) {
+    if (e.target.tagName === "FORM") {
+        sessionStorage.setItem("scrollY", window.scrollY);
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollY = sessionStorage.getItem("scrollY");
+    if (scrollY) {
+        window.scrollTo({ top: parseInt(scrollY, 10), behavior: "auto" });
+        sessionStorage.removeItem("scrollY");
+    }
+});
