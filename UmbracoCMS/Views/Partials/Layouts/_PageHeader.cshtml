@@ -17,12 +17,15 @@
 
 
 
-<section class="hero-section">
-    <!-- Bakgrundsbilder -->
-    <img src="@Url.Content("~/images/Rectangle-left.svg")" alt="" class="bg-left">
-    <img src="@Url.Content("~/images/Rectangle-right.svg")" alt="" class="bg-right">
+<section class="hero-section relative overflow-hidden">
 
-    <div class="container">
+    <img src="/images/Rectangle-left.svg"
+         class="absolute bottom-0 left-0 w-auto h-auto z-0" />
+
+    <img src="/images/Rectangle-right.svg"
+         class="absolute top-0 right-0 w-auto h-auto z-0" />
+
+    <div class="container relative z-10">
         <h1>@Model.PageTitle</h1>
 
         @if (selection?.Length > 0)
@@ -42,8 +45,7 @@
                         <p class="breadcrumb-active">
                             @Model.Name
                         </p>
-                    
-                        </li>
+                    </li>
                 </ul>
             </div>
         }
