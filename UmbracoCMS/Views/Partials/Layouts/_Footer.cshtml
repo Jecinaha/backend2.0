@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+	var RootContent = Umbraco.ContentAtRoot();
+	var SiteSettings = RootContent.OfType<SiteSettings>().FirstOrDefault();
+
+	var rightsText = SiteSettings?.RightsText ?? "Inga rättigheter angivet";
+	var rightsCreator = SiteSettings?.RightsCreator ?? "Inga rättigheter angivet";
+}
+
+<footer class="site-footer">
+	<div class="footer-container">
+		<p class="footer-text">@rightsText</p>
+		<p class="footer-creator">@rightsCreator</p>
+	</div>
+</footer>
