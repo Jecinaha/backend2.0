@@ -1,0 +1,77 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.LetUsKnowSection)Model.Content;
+
+    var siteSettings = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == "siteSettings");
+
+    var address = siteSettings?.Value<string>("contactAddress");
+    var phone = siteSettings?.Value<string>("contactPhone");
+    var email = siteSettings?.Value<string>("contactEmail");
+
+
+}
+
+<section class="let-us-know">
+    <div class="container let-us-know-grid">
+
+        @* Images Column (Vänster) *@
+        <div class="images-column">
+            <img src="/images/contact/contactUs-dots.svg" alt="Dots" class="bg-image dots">
+            <img src="/images/contact/contactUs-gray.svg" alt="Gray" class="bg-image gray">
+            <img src="/images/contact/contactUs-human.svg" alt="Human" class="bg-image human">
+        </div>
+
+        @* Contact Information Column (Höger) *@
+        <div class="contact-column">
+            @if (!string.IsNullOrWhiteSpace(content.LetUsKnowTitle))
+            {
+                <h2>@content.LetUsKnowTitle</h2>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(content.LetUsKnowText))
+            {
+                <p>@content.LetUsKnowText</p>
+            }
+
+            <ul class="contact-info">
+
+                @if (!string.IsNullOrWhiteSpace(address))
+                {
+                    <li class="contact-item">
+                        <div class="contact-header">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <strong>Office Location:</strong>
+                        </div>
+                        <span class="contact-value">@address</span>
+                    </li>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(phone))
+                {
+                    <li class="contact-item">
+                        <div class="contact-header">
+                            <i class="fa-solid fa-phone"></i>
+                            <strong>Phone Number:</strong>
+                        </div>
+                        <span class="contact-value"><a href="tel:@phone">@phone</a></span>
+                    </li>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(email))
+                {
+                    <li class="contact-item">
+                        <div class="contact-header">
+                            <i class="fa-solid fa-envelope"></i>
+                            <strong>E-mail Address:</strong>
+                        </div>
+                        <span class="contact-value"><a href="mailto:@email">@email</a></span>
+                    </li>
+                }
+
+            </ul>
+        </div>
+
+    </div>
+</section>
