@@ -1,0 +1,52 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SuccessSection)Model.Content;
+}
+
+
+<section class="success-section">
+
+    <!-- Bakgrundsbild i mitten -->
+    <img src="/images/about/success-map.svg"
+         alt="Decorative success map"
+         class="success-map" />
+
+    <!-- Innehåll ovanför kartan -->
+    <div class="container">
+        <div class="section-header">
+            <label>@content.SuccessLabel</label>
+            <h2>@content.SuccessTitle</h2>
+            <p>@Html.Raw(content.SuccessText)</p>
+        </div>
+    </div>
+
+    <!-- Success-bilden som sticker ner lite -->
+    @if (content.SuccessImage != null)
+    {
+        <div class="success-image">
+            <img src="@content.SuccessImage.Url()"
+                 alt="@content.SuccessImage.Name" />
+        </div>
+    }
+
+</section>
+
+
+<!-- 🧩 Partnerlogosektion -->
+<section class="partners-section bg-white py-20">
+    <div class="container mx-auto text-center">
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 items-center justify-center">
+            <!-- Exempel på partnerloggor -->
+            <img src="/images/partners/01.svg" alt="Partner 1" class="mx-auto h-12 w-auto grayscale hover:grayscale-0 transition duration-300" />
+            <img src="/images/partners/02.svg" alt="Partner 2" class="mx-auto h-12 w-auto grayscale hover:grayscale-0 transition duration-300" />
+            <img src="/images/partners/03.svg" alt="Partner 3" class="mx-auto h-12 w-auto grayscale hover:grayscale-0 transition duration-300" />
+            <img src="/images/partners/04.svg" alt="Partner 4" class="mx-auto h-12 w-auto grayscale hover:grayscale-0 transition duration-300" />
+            <img src="/images/partners/05.svg" alt="Partner 5" class="mx-auto h-12 w-auto grayscale hover:grayscale-0 transition duration-300" />
+        </div>
+    </div>
+</section>
+
+
+

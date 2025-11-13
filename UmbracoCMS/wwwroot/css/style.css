@@ -772,3 +772,184 @@ nav {
 .footer-creator {
     color: #9ca3af; 
 }
+
+.about-us-section {
+    background-color: #f7f7f7;
+    padding: 5rem 0;
+}
+
+.about-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.about-us-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .about-us-grid {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 2rem;
+    }
+}
+
+.about-us-image-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-us-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-us-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.about-us-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.success-section {
+    position: relative;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    background-color: #0E0E0E;
+    overflow: visible; 
+    padding-bottom: 20vh; 
+}
+
+    /* Bakgrundsbilden */
+    .success-section .success-map {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        opacity: 0.4;
+        z-index: 0;
+    }
+
+    /* Container med textinnehåll */
+    .success-section .container {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: white;
+        margin-bottom: 5rem;
+    }
+
+    /* Section header */
+    .success-section .section-header {
+        margin-bottom: 2rem;
+    }
+
+        /* Label */
+        .success-section .section-header label {
+            color: #D9C3A9;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Title */
+        .success-section .section-header h2 {
+            margin-top: 0.5rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+        }
+
+        /* Text paragraph */
+        .success-section .section-header p {
+            margin-top: 1rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: #d1d5db;
+        }
+
+    /* Success image */
+    .success-section .success-image {
+        position: absolute;
+        bottom: -12vh;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+    }
+
+        .success-section .success-image img {
+            width: 100%;
+            max-width: 64rem; 
+            height: auto;
+        }
+
+.story-section {
+    position: relative;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    padding: 7rem 0;
+}
+
+    /* Bakgrundsbilden */
+    .story-section .story-map {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        opacity: 0.9;
+        z-index: 0;
+    }
+
+    /* Textinnehåll */
+    .story-section .section-header {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: -6rem; 
+    }
+
+        /* Länk i texten */
+        .story-section .section-header .story-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+
+    /* Gruppbild längst ner */
+    .story-section .story-group {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: auto;
+        z-index: 0;
+    }

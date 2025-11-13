@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.OurStorySection)Model.Content;
+}
+
+
+<section class="story-section">
+
+    <!-- Bakgrundsbild i mitten -->
+    <img src="/images/about/story-map.svg"
+         alt="Decorative map"
+         class="story-map" />
+
+    <!-- Textinnehåll -->
+    <div class="section-header">
+        <div>@Html.Raw(content.OurStoryText)</div>
+
+        @if (content.OurStoryLink != null)
+        {
+            <a href="@content.OurStoryLink" class="story-link">
+                @content.OurStoryLink.Name
+            </a>
+        }
+    </div>
+
+    <!-- Gruppbild längst ner -->
+    <img src="/images/about/story-group.svg"
+         alt="Decorative group"
+         class="story-group" />
+
+</section>
+
