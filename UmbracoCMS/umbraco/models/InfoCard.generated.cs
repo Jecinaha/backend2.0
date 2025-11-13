@@ -50,6 +50,30 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
+		/// Easy Contact Form PlaceHolder
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("easyContactFormPlaceHolder")]
+		public virtual string EasyContactFormPlaceHolder => this.Value<string>(_publishedValueFallback, "easyContactFormPlaceHolder");
+
+		///<summary>
+		/// Easy Contact Form Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("easyContactFormText")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString EasyContactFormText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "easyContactFormText");
+
+		///<summary>
+		/// Easy Contact Form Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("easyContactFormTitle")]
+		public virtual string EasyContactFormTitle => this.Value<string>(_publishedValueFallback, "easyContactFormTitle");
+
+		///<summary>
 		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]

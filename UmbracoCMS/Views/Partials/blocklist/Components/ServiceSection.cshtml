@@ -13,35 +13,36 @@
 	var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList()?? [];
 }
 
+
 <section class="service-section" style="background-color:@(settings?.ServiceBgColor?.Color ?? "#ffffff")">
-    <div class="section-header">
-        @if (settings?.ShowServiceLabel ?? false)
-        {
-            <h2>@content.ServiceLabel</h2>
-        }
-        <div class="rte">@Html.Raw(content.ServiceTitle)</div>
-    </div>
-
-    <div class="service-grid">
-
-        @if (items.Any())
-        {
-          @foreach(var item in items)
+    <div class="service-container">
+        <div class="section-header">
+            @if (settings?.ShowServiceLabel ?? false)
             {
-                <div class="service-item">
-                    <a href="@item.Url()">
-                        <h4>@item.Name</h4>
-                        <img src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/services/tax.svg")" />
-                        <p>@item.ServiceDetailEcerpt</p>
-                    </a>
-                </div>
+                <h2>@content.ServiceLabel</h2>
             }
-        }
-        else
-        {
-            <p>No Services Avaiable</p>
-        }
+            <div class="rte">@Html.Raw(content.ServiceTitle)</div>
+        </div>
 
-    
+        <div class="service-grid">
+
+            @if (items.Any())
+            {
+                @foreach (var item in items)
+                {
+                    <div class="service-item">
+                        <a href="@item.Url()">
+                            <h4>@item.Name</h4>
+                            <img src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/services/tax.svg")" />
+                            <p>@item.ServiceDetailEcerpt</p>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No Services Avaiable</p>
+            }
+        </div>
     </div>
 </section>

@@ -26,6 +26,24 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.75rem 2.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+
 
 /* Hero Section */
 .hero {
@@ -84,6 +102,11 @@ body {
     background-color: var(--color-neutral);
 }
 
+.service-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
     .service-section .section-header {
         display: flex;
         flex-direction: column;
@@ -108,6 +131,7 @@ body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
+        margin: 0 auto;
     }
 
     .service-section .service-item {
@@ -211,31 +235,41 @@ body {
     .topbar .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        display: flex; /* flex för rad-layout */
+        align-items: center; /* vertikal centrering */
+        justify-content: space-between; /* adress vänster, sociala ikoner höger */
+        gap: 1rem;
     }
 
-    .topbar p {
+    .topbar .contact-address {
         font-size: 0.75rem;
         color: var(--color-neutral);
+        margin: 0; /* ta bort ev. default-marginal */
+        white-space: nowrap; /* hindrar texten från att brytas */
     }
 
-    .topbar .social-links a {
-        display: flex;
+    .topbar .social-links {
+        display: flex; /* rad med ikoner */
         align-items: center;
-        justify-content: center;
-        padding: 0.75rem;
-        font-size: 1rem;
-        color: var(--color-neutral);
-        border-left: 1px solid var(--color-main-light);
-        text-decoration: none;
+        gap: 0.25rem; /* mellanrum mellan ikoner */
     }
 
-        .topbar .social-links a:last-child {
-            border-right: 1px solid var(--color-main-light);
+        .topbar .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0.75rem;
+            font-size: 1rem;
+            color: var(--color-neutral);
+            border-left: 1px solid var(--color-main-light);
+            text-decoration: none;
         }
+
+            .topbar .social-links a:first-child {
+                border-left: none; /* ta bort vänsterkant på första ikonen */
+            }
+
 
 /* HEADER */
 header {
@@ -352,27 +386,6 @@ nav {
     padding: 7rem 1rem; 
     overflow: hidden; 
 }
-
-    /* Bakgrundsbilder */
-    /*.hero-section .bg-left,
-    .hero-section .bg-right {
-        position: absolute;
-        z-index: 0; 
-    }
-
-    .hero-section .bg-left {
-        bottom: 0;
-        left: 0;
-        width: 150px; 
-        height: auto;
-    }
-
-    .hero-section .bg-right {
-        top: 0;
-        right: 0;
-        width: 150px; 
-        height: auto;
-    }*/
 
     /* Container */
     .hero-section .container {
@@ -551,7 +564,7 @@ nav {
 
 /* Sektionens container */
 .about-section {
-    padding-top: 7rem; 
+    padding-top: 4rem; 
     padding-bottom: 7rem;
 }
 
@@ -560,7 +573,7 @@ nav {
     max-width: 80rem; 
     margin: 0 auto;
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
@@ -585,7 +598,7 @@ nav {
     flex-direction: column;
     width: 41.6667%; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: -11rem;
+    margin-top: -8rem;
     position: relative;
     z-index: 99;
     background-color: #fff;
@@ -770,5 +783,373 @@ nav {
     }
 
 .footer-creator {
-    color: #9ca3af; 
+    color: #d9cda9; 
 }
+
+.about-us-section {
+    background-color: #f7f7f7;
+    padding: 5rem 0;
+}
+
+.about-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.about-us-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .about-us-grid {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 2rem;
+    }
+}
+
+.about-us-image-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-us-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-us-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.about-us-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.success-section {
+    position: relative;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    background-color: #4f5955;
+    overflow: visible; 
+    padding-bottom: 20vh; 
+}
+
+    /* Bakgrundsbilden */
+    .success-section .success-map {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        opacity: 0.4;
+        z-index: 0;
+    }
+
+    /* Container med textinnehåll */
+    .success-section .container {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: white;
+        margin-bottom: 5rem;
+    }
+
+    .success-text-container {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+    }
+
+    /* Section header */
+    .success-section .section-header {
+        margin-bottom: 2rem;
+    }
+
+        /* Label */
+        .success-section .section-header label {
+            color: #D9C3A9;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Title */
+        .success-section .section-header h2 {
+            margin-top: 0.5rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+        }
+
+        /* Text paragraph */
+        .success-section .section-header p {
+            margin-top: 1rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: #d1d5db;
+        }
+
+    /* Success image */
+    .success-section .success-image {
+        position: absolute;
+        bottom: -12vh;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+    }
+
+        .success-section .success-image img {
+            width: 100%;
+            max-width: 64rem; 
+            height: auto;
+        }
+
+.story-section {
+    position: relative;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+    /* Bakgrundsbilden */
+    .story-section .story-map {
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        opacity: 0.9;
+        z-index: 0;
+    }
+
+    /* Textinnehåll */
+    .story-section .section-header {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: -6rem; 
+        max-width: 1000px;
+    }
+
+  .story-section .btn {
+      margin-top: 2rem;
+  }
+
+    /* Gruppbild längst ner */
+    .story-section .story-group {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: auto;
+        z-index: 0;
+    }
+
+
+.review-section {
+    background-color: var(--color-white-100);
+    padding: 5rem 0;
+}
+
+.section-label {
+    display: block;
+    text-align: center;
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background-color: var(--color-neutral);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.review-comment {
+    color: var(--color-body-text);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.review-stars i {
+    color: var(--color-secondary);
+    margin: 0 2px;
+}
+
+.review-author {
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-top: 1rem;
+}
+
+.review-role {
+    color: var(--color-body-text-100);
+    font-size: 0.875rem;
+}
+
+
+.let-us-know {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+    .let-us-know .let-us-know-grid {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    /* Kolumn med bilder */
+    .let-us-know .images-column {
+        flex: 1;
+        position: relative; 
+        height: 400px; 
+    }
+
+        /* Alla bilder ligger på samma X-axel */
+        .let-us-know .images-column .bg-image {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Stapla bilderna med z-index */
+        .let-us-know .images-column .dots {
+            z-index: 1;
+            bottom: 0;
+        }
+
+        .let-us-know .images-column .gray {
+            z-index: 2;
+            bottom: 0; 
+        }
+
+        .let-us-know .images-column .human {
+            z-index: 3;
+            bottom: 0; 
+        }
+
+    /* Textkolumn */
+    .let-us-know .contact-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Kontaktinfo styling */
+    .let-us-know .contact-info {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+    }
+
+    .let-us-know .contact-item {
+        margin-bottom: 1rem;
+    }
+
+    .let-us-know .contact-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: bold;
+    }
+
+    .let-us-know .contact-value a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+        .let-us-know .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+
+.partner-logos {
+    background-color: #fff;
+    padding-top: 220px; 
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+    .partner-logos .logo-grid {
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 4rem; 
+        flex-wrap: nowrap;
+    }
+
+    .partner-logos .logo-item {
+        flex: 0 0 auto;
+    }
+
+        .partner-logos .logo-item img {
+            max-height: 80px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.95;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+            .partner-logos .logo-item img:hover {
+                opacity: 1;
+                transform: scale(1.05);
+            }

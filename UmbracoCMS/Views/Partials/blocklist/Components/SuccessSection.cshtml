@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SuccessSection)Model.Content;
+}
+
+
+<section class="success-section">
+
+    <img src="/images/about/success-map.svg"
+         alt="Decorative success map"
+         class="success-map" />
+
+    <div class="container">
+        <div class="section-header">
+            <label>@content.SuccessLabel</label>
+            <h2>@content.SuccessTitle</h2>
+            <div class="success-text-container">
+                <p>@Html.Raw(content.SuccessText)</p>
+                <p>@Html.Raw(content.SuccessText2)</p>
+                <p>@Html.Raw(content.SuccessText3)</p>
+
+             
+            </div>
+         
+        </div>
+    </div>
+ 
+    @if (content.SuccessImage != null)
+    {
+        <div class="success-image">
+            <img src="@content.SuccessImage.Url()"
+                 alt="@content.SuccessImage.Name" />
+        </div>
+    }
+
+</section>
