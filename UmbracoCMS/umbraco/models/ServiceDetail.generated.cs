@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Service Detail</summary>
 	[PublishedModel("serviceDetail")]
-	public partial class ServiceDetail : PublishedContentModel, IPageHeader
+	public partial class ServiceDetail : PublishedContentModel, IContactInformation, IPageHeader
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,12 +50,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Let Us Know Section
+		/// Question Form
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("letUsKnowSection")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel LetUsKnowSection => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "letUsKnowSection");
+		[ImplementPropertyType("questionForm")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel QuestionForm => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "questionForm");
 
 		///<summary>
 		/// Widgets
@@ -88,6 +88,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("serviceDetailThumbnail")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ServiceDetailThumbnail => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "serviceDetailThumbnail");
+
+		///<summary>
+		/// Information Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("informationTitle")]
+		public virtual string InformationTitle => global::Umbraco.Cms.Web.Common.PublishedModels.ContactInformation.GetInformationTitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Title

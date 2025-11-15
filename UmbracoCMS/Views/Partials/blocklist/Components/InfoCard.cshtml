@@ -1,11 +1,29 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using UmbracoCMS.ViewModels
 @{
     var content = (ContentModels.InfoCard)Model.Content;
+    var easyForm = new EasyContactFormViewModel();
 }
 
 <div class="info-card">
     <h2>@content.InfoTitle</h2>
     <img src="@(content.InfoImage?.Url() ?? Url.Content("~/images/services/tax.svg"))" alt="@content.InfoTitle" />
     <p>@content.InfoText</p>
+
+    <div class="info-subscribe">
+        <h3>@content.EasyContactFormTitle</h3>
+        <p>@content.EasyContactFormText</p>
+
+        <partial name="Partials/Forms/_EasyContactForm" model="easyForm" />
+
+        @if (TempData["SubscribeSuccess"] != null)
+        {
+            <div class="form-success">@TempData["SubscribeSuccess"]</div>
+        }
+        else if (TempData["SubscribeError"] != null)
+        {
+            <div class="form-error">@TempData["SubscribeError"]</div>
+        }
+    </div>
 </div>

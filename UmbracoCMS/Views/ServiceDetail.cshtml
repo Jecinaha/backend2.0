@@ -19,7 +19,14 @@
             <div class="content">
                 <div class="service-detail-body">@Html.Raw(Model.ServiceDetailBody)</div>
             </div>
-
         </div>
+
+
     </div>
 </section>
+
+
+@Html.GetBlockListHtml(Model.QuestionForm)
+
+
+<partial name="Partials/Layouts/_ContactInformation" model="(IContactInformation)Model" />

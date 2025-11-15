@@ -1,0 +1,44 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using UmbracoCMS.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    // Säker typkontroll
+    ContentModels.QuestionsSection? content = null;
+    if (Model.Content is ContentModels.QuestionsSection qSection)
+    {
+        content = qSection;
+    }
+
+    // Skapa form-viewmodel
+    var formVM = new QuestionFormViewModel();
+}
+
+<section class="questions-section section">
+    <div class="container">
+
+        @if (content != null)
+        {
+            <h2 class="section-title">@content.QuestionsTitle</h2>
+        }
+        else
+        {
+            <p class="text-red-600">Fel typ av innehåll. Förväntar QuestionsSection.</p>
+        }
+
+        <partial name="Partials/Forms/_QuestionForm" model="formVM" />
+
+        @if (TempData["FormSuccess"] != null)
+        {
+            <div class="bg-green-50 text-green-700 p-4 mb-4 rounded-md">
+                @TempData["FormSuccess"]
+            </div>
+        }
+        else if (TempData["FormError"] != null)
+        {
+            <div class="bg-red-50 text-red-700 p-4 mb-4 rounded-md">
+                @TempData["FormError"]
+            </div>
+        }
+    </div>
+</section>
