@@ -1,6 +1,9 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+﻿
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 @using UmbracoCMS.ViewModels
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
 @{
     var content = (ContentModels.ContactCallbackSection)Model.Content;
     var settings = Model.Settings as ContentModels.ContactCallbackSettings;
@@ -11,39 +14,32 @@
     };
 }
 
-
 <section class="contact-section">
-    <img src="@content.ContactFormBg?.Url()" />
+    <img src="@content.ContactFormBg?.Url()" alt="Background" class="contact-bg" />
+
     <div class="contact-container">
+        <div class="contact-form-card">
 
-
-        <div class="about-card">
-            <div class="about-card-header">
-                <p>@content.ContactFormLabel</p>
-                <h2>@content.ContactFormTitle</h2>
-                <p>@content.ContactFormText</p>
+            <!-- Innehåll ovanför formuläret -->
+            <div class="contact-form-header">
+                <p class="form-label">@content.ContactFormLabel</p>
+                <h2 class="form-title">@content.ContactFormTitle</h2>
+                <p class="form-text">@content.ContactFormText</p>
             </div>
 
+            <!-- Formulär partial -->
             <partial name="Partials/Forms/_CallbackForm_ContactPage" model="formVM" />
 
-
+            <!-- Success/Error -->
             @if (TempData["FormSuccess"] != null)
             {
-                <div class="bg-green-50 text-green-700 p-4 mx-[2rem] mb-4 rounded-md">
-                    @TempData["FormSuccess"]
-                </div>
+                <div class="form-success">@TempData["FormSuccess"]</div>
             }
             else if (TempData["FormError"] != null)
             {
-                <div class="bg-red-50 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
-                    @TempData["FormError"]
-                </div>
-
+                <div class="form-error">@TempData["FormError"]</div>
             }
 
-
         </div>
-
     </div>
 </section>
-
