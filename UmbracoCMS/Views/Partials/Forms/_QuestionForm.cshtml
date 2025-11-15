@@ -1,0 +1,29 @@
+﻿@model UmbracoCMS.ViewModels.QuestionFormViewModel
+
+@using (Html.BeginUmbracoForm("HandleQuestionForm", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "questionsForm" }))
+{
+    <div class="questions-form">
+
+        <div class="form-row">
+            <div class="form-group half">
+                <label asp-for="QuestionName"></label>
+                <input asp-for="QuestionName" class="form-input" />
+                <span asp-validation-for="QuestionName"></span>
+            </div>
+
+            <div class="form-group half">
+                <label asp-for="QuestionEmail"></label>
+                <input asp-for="QuestionEmail" class="form-input" />
+                <span asp-validation-for="QuestionEmail"></span>
+            </div>
+        </div>
+
+        <div class="form-group full">
+            <label asp-for="QuestionText"></label>
+            <textarea asp-for="QuestionText" rows="5" class="form-input"></textarea>
+            <span asp-validation-for="QuestionText"></span>
+        </div>
+
+        <button type="submit" class="btn-submit">Skicka</button>
+    </div>
+}

@@ -7,25 +7,19 @@
 @inject IDocumentNavigationQueryService DocumentNavigationQueryService
 @inject IPublishedUrlProvider PublishedUrlProvider
 
-
 @{
     var selection = Model.Ancestors().ToArray();
     var homePageDisplayName = "Home";
     var isFirstItem = true;
 }
 
+<section class="page-header">
 
+    <img src="/images/Rectangle-left.svg" alt="" class="page-header-bg-left" />
 
+    <img src="/images/Rectangle-right.svg" alt="" class="page-header-bg-right" />
 
-<section class="hero-section relative overflow-hidden">
-
-    <img src="/images/Rectangle-left.svg"
-         class="absolute bottom-0 left-0 w-auto h-auto z-0" />
-
-    <img src="/images/Rectangle-right.svg"
-         class="absolute top-0 right-0 w-auto h-auto z-0" />
-
-    <div class="container relative z-10">
+    <div class="page-header-container">
         <h1>@Model.PageTitle</h1>
 
         @if (selection?.Length > 0)
@@ -37,9 +31,9 @@
                         var displayName = isFirstItem ? homePageDisplayName : item.Name;
                         <li>
                             <a href="@item.Url(PublishedUrlProvider)">@displayName</a>
-                            <i class="breadcrumb-icon fa-solid fa-angle-right"></i>
+                            <i class="breadcrumb-icon fa-solid fa-angle-right" aria-hidden="true"></i>
                         </li>
-                        isFirstItem = false;
+                        { isFirstItem = false; }
                     }
                     <li class="active">
                         <p class="breadcrumb-active">

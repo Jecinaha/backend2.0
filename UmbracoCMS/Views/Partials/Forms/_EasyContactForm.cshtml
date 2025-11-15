@@ -1,0 +1,14 @@
+﻿@using UmbracoCMS.ViewModels
+@model EasyContactFormViewModel
+
+@using (Html.BeginUmbracoForm("HandleEasyContact", "EasyContactForm", FormMethod.Post, new { novalidate = "novalidate", id = "easyContactForm" }))
+{
+    <div class="subscribe-label">
+        <label asp-for="Email" class="sr-only"></label>
+        <input asp-for="Email" type="email" placeholder="Din e-postadress" class="subscribe-input" />
+        <button type="submit" class="subscribe-button" aria-label="Skicka">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <span asp-validation-for="Email"></span>
+    </div>
+}

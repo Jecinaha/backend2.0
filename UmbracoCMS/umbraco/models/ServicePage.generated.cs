@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Service Page</summary>
 	[PublishedModel("servicePage")]
-	public partial class ServicePage : PublishedContentModel, IPageHeader
+	public partial class ServicePage : PublishedContentModel, IContactInformation, IPageHeader
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -56,6 +56,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("sections")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Sections => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "sections");
+
+		///<summary>
+		/// Information Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.4+0d2393d")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("informationTitle")]
+		public virtual string InformationTitle => global::Umbraco.Cms.Web.Common.PublishedModels.ContactInformation.GetInformationTitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Page Title
