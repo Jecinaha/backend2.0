@@ -3,59 +3,59 @@
 
 @{
     var content = (ContentModels.ReviewSection)Model.Content;
-    var reviews = content.ReviewItemsList;
+    var firstImage = content.ReviewItemsList?.FirstOrDefault()?.Content as ContentModels.ReviewItem;
 }
 
 <section class="review-section">
     <div class="container">
 
-        @if (!string.IsNullOrWhiteSpace(content.ReviewLabel))
-        {
-            <span class="section-label">@content.ReviewLabel</span>
-        }
-
-        @if (!string.IsNullOrWhiteSpace(content.SectionTitle))
-        {
-            <h2 class="section-title">@content.SectionTitle</h2>
-        }
-
-        <div class="review-grid">
-            @if (reviews != null && reviews.Any())
+        <!-- Vänster kolumn: allt innehåll utom bild -->
+        <div class="review-left">
+            @if (!string.IsNullOrWhiteSpace(content.ReviewLabel))
             {
-                @foreach (var item in reviews)
+                <span class="section-label">@content.ReviewLabel</span>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(content.SectionTitle))
+            {
+                <h2 class="section-title">@content.SectionTitle</h2>
+            }
+
+            @if (content.ReviewItemsList != null && content.ReviewItemsList.Any())
+            {
+                @foreach (var item in content.ReviewItemsList)
                 {
                     var review = (ContentModels.ReviewItem)item.Content;
 
-                    <div class="review-card">
-                        @if (review.ReviewImage != null)
-                        {
-                            <img src="@review.ReviewImage.Url()" alt="@review.ReviewAuthor" class="review-image" />
-                        }
-
-                        <div class="review-text">
-                            <p class="review-comment">@review.ReviewComment</p>
-
-                            <div class="review-stars">
-                                @for (int i = 1; i <= 5; i++)
+                    <div class="review-text">
+                        <p class="review-comment">@review.ReviewComment</p>
+                        <div class="review-stars">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= review.ReviewStars)
                                 {
-                                    if (i <= review.ReviewStars)
-                                    {
-                                        <i class="fa-solid fa-star"></i>
-                                    }
-                                    else
-                                    {
-                                        <i class="fa-regular fa-star"></i>
-                                    }
+                                    <i class="fa-solid fa-star"></i>
                                 }
-                            </div>
-
-                            @* Review Author & Role *@
-                            <p class="review-author">@review.ReviewAuthor</p>
-                            <p class="review-role">@review.ReviewRole</p>
+                                else
+                                {
+                                    <i class="fa-regular fa-star"></i>
+                                }
+                            }
                         </div>
+                        <p class="review-author">@review.ReviewAuthor</p>
+                        <p class="review-role">@review.ReviewRole</p>
                     </div>
                 }
             }
         </div>
+
+        <!-- Höger kolumn: bild -->
+        <div class="review-right">
+            @if (firstImage?.ReviewImage != null)
+            {
+                <img src="@firstImage.ReviewImage.Url()" alt="@firstImage.ReviewAuthor" class="review-image" />
+            }
+        </div>
+
     </div>
 </section>

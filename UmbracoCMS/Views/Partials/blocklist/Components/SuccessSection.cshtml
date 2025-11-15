@@ -16,9 +16,19 @@
             <label>@content.SuccessLabel</label>
             <h2>@content.SuccessTitle</h2>
             <div class="success-text-container">
-                <p>@Html.Raw(content.SuccessText)</p>
-                <p>@Html.Raw(content.SuccessText2)</p>
-                <p>@Html.Raw(content.SuccessText3)</p>
+                <div class="success-info">
+                    <p>@Html.Raw(content.SuccessText)</p>
+
+                </div>
+                <div class="success-info">
+                    <p>@Html.Raw(content.SuccessText2)</p>
+                </div>
+                <div class="success-info">
+                    <p>@Html.Raw(content.SuccessText3)</p>
+                </div>
+                
+               
+             
 
              
             </div>
