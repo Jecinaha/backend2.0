@@ -26,10 +26,6 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 .btn {
     display: inline-block;
@@ -238,25 +234,25 @@ body {
 
     .topbar .container {
         max-width: 1200px;
+        max-height: 40px;
         margin: 0 auto;
-        padding: 0.5rem 1rem;
-        display: flex; /* flex för rad-layout */
-        align-items: center; /* vertikal centrering */
-        justify-content: space-between; /* adress vänster, sociala ikoner höger */
+        display: flex;
+        align-items: center; 
+        justify-content: space-between; 
         gap: 1rem;
     }
 
     .topbar .contact-address {
         font-size: 0.75rem;
         color: var(--color-neutral);
-        margin: 0; /* ta bort ev. default-marginal */
-        white-space: nowrap; /* hindrar texten från att brytas */
+        margin: 0; 
+        white-space: nowrap; 
     }
 
     .topbar .social-links {
-        display: flex; /* rad med ikoner */
+        display: flex; 
         align-items: center;
-        gap: 0.25rem; /* mellanrum mellan ikoner */
+        gap: 0.25rem; 
     }
 
         .topbar .social-links a {
@@ -271,7 +267,7 @@ body {
         }
 
             .topbar .social-links a:first-child {
-                border-left: none; /* ta bort vänsterkant på första ikonen */
+                border-left: none; 
             }
 
 
@@ -1267,6 +1263,7 @@ nav {
         .let-us-know .images-column .dots {
             z-index: 1;
             bottom: 0;
+
         }
 
         .let-us-know .images-column .gray {
@@ -1317,9 +1314,14 @@ nav {
 
 .partner-logos {
     background-color: #fff;
-    padding-top: 220px; 
+    padding-top: 220px;
     padding-bottom: 100px;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
     .partner-logos .logo-grid {
