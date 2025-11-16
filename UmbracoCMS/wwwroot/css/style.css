@@ -28,6 +28,11 @@ body {
     text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color-body-text);
+}
+
 button .btn {
     all: unset; 
     display: inline-block;
@@ -154,6 +159,7 @@ button .btn {
         font-weight: 700;
         color: var(--color-secondary);
         text-transform: uppercase;
+    
     }
 
     .service-section .rte {
@@ -183,6 +189,7 @@ button .btn {
             padding: 1.5rem;
             font-weight: 600;
             color: var(--color-primary);
+            text-decoration: none;
         }
 
         .service-section .service-item img {
