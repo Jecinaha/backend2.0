@@ -1,4 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('style.css');
 
 /* Färger & typsnitt */
 :root {
@@ -383,7 +384,7 @@ nav {
 /* Hero-sektion */
 .hero-section {
     position: relative;
-    background-color: #F7F7F7; 
+    background-color: var(--color-white-100); 
     min-height: 400px; 
     padding: 7rem 1rem; 
     overflow: hidden; 
@@ -463,8 +464,8 @@ nav {
 .services-section {
     padding-top: 4rem;
     padding-bottom: 4rem;
-    position: relative; /* lägg till om det saknas */
-    z-index: 1; /* se till att denna är lägre än formuläret */
+    position: relative; 
+    z-index: 1; 
 }
 
 .service-detail-body p {
@@ -474,12 +475,12 @@ nav {
 .service-detail-body * {
     max-width: 100%;
 }
-
-img {
+/*
+.service-detail img {
     width: 100%;
     height: auto;
     object-fit: cover;
-}
+}*/
 
 /* Container */
 .services-section .container {
@@ -569,12 +570,6 @@ img {
         }
 }
 
-.question-form-section {
-    position: relative;
-    z-index: 5;
-    margin-top: 4rem; /* pushar ner formuläret */
-    padding-top: 2rem;
-}
 
 .contact-information-section {
     position: relative;
@@ -1300,7 +1295,7 @@ img {
             z-index: 2;
             bottom: 0;
             left: 0;
-            transform: translateX(65px); /* flytta 50px åt höger */
+            transform: translateX(65px);
         }
 
         .let-us-know .images-column .human {
@@ -1407,20 +1402,19 @@ img {
 /* --- Questions Section --- */
 
 .questions-section {
-    padding: 6rem 0;
-    background-color: #f9f9f9;
+    padding: 0;
+    margin: 1rem 10rem;
 }
 
     .questions-section .section-title {
-        text-align: center;
+        
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 2.5rem;
     }
 
 .questions-form {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 100%;
 }
 
     .questions-form .form-row {
@@ -1466,19 +1460,6 @@ img {
             box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.2);
         }
 
-    .questions-form .btn-submit {
-        display: inline-block;
-        background-color: #0077cc;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 600;
-        padding: 0.75rem 2rem;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
         .questions-form .btn-submit:hover {
             background-color: #005fa3;
         }
@@ -1488,7 +1469,7 @@ img {
 .page-header {
     position: relative;
     overflow: hidden;
-    background-color: #f7f7f7;
+    background-color: var(--color-white-100);
     max-height: 300px;
     display: flex;
     justify-content: center;
@@ -1535,7 +1516,7 @@ img {
         margin: 0;
         font-size: 2rem;
         font-weight: 700;
-        color: #4F5955;
+        color: var(--color-primary);
         padding-bottom: 1rem;
     }
 
@@ -1562,7 +1543,7 @@ img {
 
     .breadcrumb a {
         text-decoration: none;
-        color: #4F5955;
+        color: var(--color-primary);
         font-size: 0.9rem;
     }
 
@@ -1574,7 +1555,7 @@ img {
 
 .breadcrumb-active {
     font-weight: 600;
-    color: #D9C3A9;
+    color: var(--color-secondary);
     font-size: 0.9rem;
 }
 
@@ -1605,7 +1586,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: var(--color-white-100);
 }
 
 .contact-bg {
@@ -1662,12 +1643,12 @@ img {
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        color: var(--color-primary);
+        color: var(--color-body-text);
     }
 
     .contact-form-header .form-text {
         font-size: 0.875rem;
-        color: var(--color-primary);
+        color: var(--color-body-text);
         font-style: italic;
     }
 
@@ -1711,7 +1692,6 @@ img {
     }
     /* Success/Error meddelanden */
     .form-success {
-        background-color: #d1fae5;
         color: #065f46;
         padding: 1rem;
         border-radius: 6px;
@@ -1719,7 +1699,6 @@ img {
     }
 
 .form-error {
-    background-color: #fee2e2;
     color: #b91c1c;
     padding: 1rem;
     border-radius: 6px;
