@@ -25,8 +25,7 @@
 
         <div class="contact-column">
         
-                <h2>Let us know aout your next project</h2>
-         
+                <h2 class="contact-header">Let us know about your next project</h2>
 
 
             <ul class="contact-info">
@@ -34,37 +33,41 @@
                 @if (!string.IsNullOrWhiteSpace(address))
                 {
                     <li class="contact-item">
-                        <div class="contact-header">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <strong>Office Location:</strong>
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div class="contact-text">
+                            <p>Office Location</p>
+                            <span>@address</span>
                         </div>
-                        <span class="contact-value">@address</span>
                     </li>
                 }
 
                 @if (!string.IsNullOrWhiteSpace(phone))
                 {
                     <li class="contact-item">
-                        <div class="contact-header">
-                            <i class="fa-solid fa-phone"></i>
-                            <strong>Phone Number:</strong>
+                        <i class="fa-solid fa-phone"></i>
+
+                        <div class="contact-text">
+                            <p>Phone Number</p>
+                            <span><a href="tel:@phone">@phone</a></span>
                         </div>
-                        <span class="contact-value"><a href="tel:@phone">@phone</a></span>
                     </li>
                 }
 
                 @if (!string.IsNullOrWhiteSpace(email))
                 {
                     <li class="contact-item">
-                        <div class="contact-header">
-                            <i class="fa-solid fa-envelope"></i>
-                            <strong>E-mail Address:</strong>
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <div class="contact-text">
+                            <p>E-mail Address</p>
+                            <span><a href="mailto:@email">@email</a></span>
                         </div>
-                        <span class="contact-value"><a href="mailto:@email">@email</a></span>
                     </li>
                 }
 
             </ul>
+
         </div>
 
     </div>

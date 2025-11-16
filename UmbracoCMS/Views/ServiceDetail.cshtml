@@ -26,7 +26,10 @@
 </section>
 
 
-@Html.GetBlockListHtml(Model.QuestionForm)
+<section class="question-form-section">
+    @Html.GetBlockListHtml(Model.QuestionForm)
+</section>
 
-
-<partial name="Partials/Layouts/_ContactInformation" model="(IContactInformation)Model" />
+<section class="contact-information-section">
+    <partial name="Partials/Layouts/_ContactInformation" model="(IContactInformation)Model" />
+</section>

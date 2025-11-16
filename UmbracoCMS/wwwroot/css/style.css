@@ -461,19 +461,25 @@ nav {
 
 /*  Sektion  */
 .services-section {
-    padding-top: 4rem; 
+    padding-top: 4rem;
     padding-bottom: 4rem;
+    position: relative; /* lägg till om det saknas */
+    z-index: 1; /* se till att denna är lägre än formuläret */
 }
 
 .service-detail-body p {
     margin-bottom: 1rem;
 }
 
-/*img {
+.service-detail-body * {
+    max-width: 100%;
+}
+
+img {
     width: 100%;
     height: auto;
     object-fit: cover;
-}*/
+}
 
 /* Container */
 .services-section .container {
@@ -562,6 +568,21 @@ nav {
             width: 60%;
         }
 }
+
+.question-form-section {
+    position: relative;
+    z-index: 5;
+    margin-top: 4rem; /* pushar ner formuläret */
+    padding-top: 2rem;
+}
+
+.contact-information-section {
+    position: relative;
+    z-index: 5;
+    margin-top: 6rem;
+}
+
+
 
 .info-subscribe {
     display: flex;
@@ -1148,13 +1169,13 @@ nav {
     background-color: #f7f7f7;
 }
 
-.container {
-    display: flex;
-    align-items: stretch;
-    height: 500px;
-    gap: 2rem;
-    margin-left: 15rem;
-}
+    .review-section .container {
+        display: flex;
+        align-items: stretch;
+        height: 500px;
+        gap: 2rem;
+        margin-left: 14rem;
+    }
 
 /* Vänster kolumn: text */
 .review-left {
@@ -1218,7 +1239,7 @@ nav {
 
 /* Responsivt */
 @media (max-width: 768px) {
-    .container {
+    .review-section .container {
         flex-direction: column;
         align-items: center;
         height: auto;
@@ -1236,14 +1257,21 @@ nav {
 
 
 .let-us-know {
-    padding-top: 100px;
+    padding-top: 4rem;
 }
 
+    .let-us-know .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+
     .let-us-know .let-us-know-grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
         gap: 2rem;
-        align-items: flex-start;
-       
     }
 
     /* Kolumn med bilder */
@@ -1283,32 +1311,56 @@ nav {
     /* Textkolumn */
     .let-us-know .contact-column {
         flex: 1;
-        display: flex;
-        flex-direction: column;
         justify-content: center;
+        
     }
 
     /* Kontaktinfo styling */
     .let-us-know .contact-info {
         list-style: none;
         padding: 0;
-        margin-top: 1rem;
     }
 
     .let-us-know .contact-item {
         margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
     }
 
     .let-us-know .contact-header {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-weight: bold;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: var(--color-primary);
+        max-width: 400px;
+        padding-bottom: 1rem;
+    }
+
+    .let-us-know i {
+       color: var(--color-secondary);
+       font-size: 1rem;
+    }
+
+    .let-us-know .contact-text {
+        padding-bottom: 1.5rem;
+
+    }
+      .let-us-know p {
+          font-weight: 600;
+          font-size: 0.875rem;
+      }
+
+    .let-us-know span {
+        font-size: 0.875rem;
     }
 
     .let-us-know .contact-value a {
         color: inherit;
         text-decoration: none;
+    
     }
 
         .let-us-know .contact-value a:hover {
@@ -1580,81 +1632,91 @@ nav {
     padding: 3rem 2rem;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    max-width: 700px;
+    max-width: 1100px;
     width: 100%;
-    transform: translateY(240px);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    transform: translateY(200px);
+    z-index: 10;
 }
 
 /* Header ovanför formuläret */
 .contact-form-header {
     text-align: center;
+    max-width: 550px;
+    margin: 0 auto;
 }
 
     .contact-form-header .form-label {
         font-size: 0.875rem;
-        color: #777;
+        color: var(--color-secondary);
         text-transform: uppercase;
+        font-weight: 600;
         letter-spacing: 1px;
         margin-bottom: 0.5rem;
+        margin-top: 2rem;
     }
 
     .contact-form-header .form-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
+        color: var(--color-primary);
     }
 
     .contact-form-header .form-text {
-        font-size: 1rem;
-        color: #555;
+        font-size: 0.875rem;
+        color: var(--color-primary);
+        font-style: italic;
     }
 
-/* Formulär */
+/* Formulär layout */
 .contact-form-wrapper {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin: 1rem 2rem 1rem 2rem;
 }
 
-.form-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-input,
-.form-select {
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s ease;
-}
-
-    .form-input:focus,
-    .form-select:focus {
-        border-color: #007acc;
+    .contact-form-wrapper .form-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
     }
 
+    .contact-form-wrapper .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
 
-/* Success/Error meddelanden */
-.form-success {
-    background-color: #d1fae5;
-    color: #065f46;
-    padding: 1rem;
-    border-radius: 6px;
-    text-align: center;
-}
+    .contact-form-wrapper .form-input,
+    .form-select {
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+
+        .contact-form-wrapper .form-input:focus,
+        .form-select:focus {
+            border-color: #007acc;
+        }
+
+    .contact-form-wrapper .btn {
+        margin: 0 auto;
+    }
+    /* Success/Error meddelanden */
+    .form-success {
+        background-color: #d1fae5;
+        color: #065f46;
+        padding: 1rem;
+        border-radius: 6px;
+        text-align: center;
+    }
 
 .form-error {
     background-color: #fee2e2;
